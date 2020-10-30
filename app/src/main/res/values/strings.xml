@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">google map</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name="normal_map">NORMAL</string>
+    <string name="hybrid_map">HIBRIDO</string>
+    <string name="satellite_map">SATELITAL</string>
+    <string name="terrain_map">TERRENO</string>
+
+    <string-array name="tipo_mapa">
+        <item>--Selec--</item>
+        <item>Normal</item>
+        <item>Satelite</item>
+        <item>Hibrido</item>
+        <item>Terrarian</item>
+    </string-array>
+
+</resources>
