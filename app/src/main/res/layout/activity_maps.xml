@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Spinner
-            android:id="@+id/spinner_nombre"
+            android:id="@+id/spinner_tipomapa"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:entries="@array/tipo_mapa"

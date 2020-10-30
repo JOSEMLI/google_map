@@ -9,7 +9,6 @@
     <string name="terrain_map">TERRENO</string>
 
     <string-array name="tipo_mapa">
-        <item>--Selec--</item>
         <item>Normal</item>
         <item>Satelite</item>
         <item>Hibrido</item>

@@ -14,6 +14,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -37,6 +41,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private static final String TAG = "estilo de mapa";
     private static final int  REQUEST_LOCATION_PERMISSION = 1;
+
+    private Spinner spinner_tipomapa;
+
+    private String [] tipo_mapa;
+
+    private String  tipo_mapa_escogido = "";
 
 
 
@@ -80,6 +90,46 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, mapFragment).commit();
 
         mapFragment.getMapAsync(this);
+
+        spinner_tipomapa = (Spinner) findViewById(R.id.spinner_tipomapa);
+
+        tipo_mapa = getResources().getStringArray(R.array.tipo_mapa);
+
+        spinner_tipomapa.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int positiontipomapa, long l) {
+
+                tipo_mapa_escogido = tipo_mapa[Integer.parseInt(String.valueOf(spinner_tipomapa.getItemIdAtPosition(positiontipomapa)))];
+
+                Toast.makeText(MapsActivity.this, "escogio la opcion " + tipo_mapa_escogido,Toast.LENGTH_LONG).show();
+
+                if(tipo_mapa_escogido == "Normal")
+                {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                }
+                if(tipo_mapa_escogido == "Satelite")
+                {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                }
+                if(tipo_mapa_escogido == "Hibrido")
+                {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                }
+                if(tipo_mapa_escogido == "Terrarian")
+                {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                }
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
 
     /**
